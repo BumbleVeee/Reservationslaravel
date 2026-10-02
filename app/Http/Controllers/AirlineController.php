@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\airline;
 use App\Http\Requests\StoreairlineRequest;
 use App\Http\Requests\UpdateairlineRequest;
+use Illuminate\Http\Request;
 
 class AirlineController extends Controller
 {
@@ -13,23 +14,23 @@ class AirlineController extends Controller
      */
     public function index()
     {
-        //
+        return airline::all();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        airline::create($request);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreairlineRequest $request)
+    public function store(Request $request)
     {
-        //
+        airline::create($request);
     }
 
     /**
@@ -37,7 +38,7 @@ class AirlineController extends Controller
      */
     public function show(airline $airline)
     {
-        //
+        return airline::find($airline);
     }
 
     /**
@@ -51,9 +52,9 @@ class AirlineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateairlineRequest $request, airline $airline)
+    public function update(Request $request)
     {
-        //
+        airline::find($request);
     }
 
     /**
@@ -61,6 +62,6 @@ class AirlineController extends Controller
      */
     public function destroy(airline $airline)
     {
-        //
+        airline::find($airline)->delete();
     }
 }

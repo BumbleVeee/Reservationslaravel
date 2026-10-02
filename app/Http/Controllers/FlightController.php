@@ -13,15 +13,15 @@ class FlightController extends Controller
      */
     public function index()
     {
-        //
+        return flight::all();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(flight $request)
     {
-        //
+        flight::create($request);
     }
 
     /**

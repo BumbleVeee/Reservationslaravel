@@ -13,7 +13,7 @@ class TravelController extends Controller
      */
     public function index()
     {
-        //
+        return travel::all();
     }
 
     /**
